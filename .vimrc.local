@@ -1,0 +1,105 @@
+let mapleader = "\<Space>"
+set wrap
+inoremap jk <esc>
+noremap <C-g> <esc>
+cnoremap <C-g> <esc>
+xnoremap <C-g> <esc>
+onoremap <C-g> <esc>
+nnoremap Q :q!<cr>
+nnoremap ; :
+nnoremap W :w!<cr>
+nnoremap Z ZZ
+inoremap <C-f> <C-o>l
+inoremap <C-b> <C-o>h
+inoremap <C-e> <C-o>A
+inoremap <C-a> <C-o>I
+inoremap <C-u> <C-o>S
+
+" buffers
+nnoremap [b :bp<cr>
+nnoremap ]b :bn<cr>
+" <C-W>m to maximize window
+nnoremap <C-W>m <C-W>\|<C-W>_
+" put vim into background
+nnoremap \\ <C-z>
+
+set autoindent
+set expandtab
+set tabstop=2
+set shiftwidth=2
+" colortheme
+" colorscheme gruvbox
+colorscheme molokai
+highlight Visual term=reverse cterm=reverse guibg=Grey
+" file-indentation
+augroup filetype_web_dev
+    autocmd!
+    autocmd Filetype html setlocal ts=2 sw=2 expandtab
+    autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 expandtab
+    autocmd Filetype *.hbs setlocal ts=2 sw=2 sts=0 expandtab
+    autocmd Filetype coffeescript setlocal ts=2 sw=2 sts=0 expandtab
+    autocmd Filetype jade setlocal ts=2 sw=2 sts=0 expandtabb files, 2 spaces
+    autocmd BufNewFile,BufRead *.go setlocal noet ts=8 sw=8 sts=4
+    " autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
+    autocmd FileType vue syntax sync fromstart
+augroup END
+
+let g:syntastic_javascript_checkers=['eslint']
+
+" https://github.com/mxw/vim-jsx
+" enable jsx syntax for .js extension
+let g:jsx_ext_required = 0
+
+" tweak neocomplete
+"""""""""""""""""""""""""""""""
+" Set minimum syntax keyword length
+let g:neocomplete#sources#syntax#min_keyword_length = 1
+" <C-j> <C-k> to cycle autocomplete cadidators
+inoremap <expr> <c-j> ("\<C-n>")
+inoremap <expr> <c-k> ("\<C-p>")
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+"""""""""""""""""""""""""""""""""""""""
+" golang : vim-go setting
+" let g:go_fmt_options = "-tabwidth=8"
+" auto import deps
+let g:go_fmt_command = "gofmt"
+let g:go_goimports_bin = "goimports -tabwidth=8"
+let g:go_fmt_autosave = 0
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+" vim-node customize
+" https://github.com/moll/vim-node
+"<C-w>f to open the file under the cursor in a new vertical split
+autocmd User Node
+  \ if &filetype == "javascript" |
+  \   nmap <buffer> <C-w>f <Plug>NodeVSplitGotoFile |
+  \   nmap <buffer> <C-w><C-f> <Plug>NodeVSplitGotoFile |
+  \ endif
+
+" syntax for javacsript libraries
+" https://github.com/othree/javascript-libraries-syntax.vim
+let g:used_javascript_libs = 'jquery,underscore,react,requirejs'
+let g:syntastic_enable_racket_racket_checker = 1
+set rtp+=~/.fzf
+set nospell

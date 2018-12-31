@@ -1,0 +1,11 @@
+. "$HOME/dots/alias.sh"
+. "$HOME/dots/git.sh"
+. "$HOME/dots/functions.sh"
+# . "$HOME/dots/colorman.sh"
+# . "$HOME/dots/haskell.sh"
+# . "$HOME/dots/docker.sh"
+# . "$HOME/dots/tmux.autostart.sh"
+# . "$HOME/dots/k8s.sh"
+# . "$HOME/dots/go.sh"
+# . "$HOME/dots/time-consuming-cmds"
+

@@ -1,0 +1,227 @@
+{
+    // #--------- window
+    "window.nativeTabs": true,
+    "window.title": "${activeEditorLong}${separator}${dirty} ${rootName}",
+
+    // #-------- editor
+    // "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.minimap.enabled": true,
+    "editor.renderLineHighlight": "none",
+    "editor.renderIndentGuides": false,
+    // number | "hide"
+    "editor.scrollbar.verticalScrollbarSize": 1,
+    "editor.glyphMargin": false,
+    "editor.folding": false,
+    // disable highlight words that is the same as
+    // the selection
+    "editor.selectionHighlight": false,
+    "editor.fontSize": 13,
+    "editor.cursorStyle": "block",
+    "editor.lineNumbers": "on",
+    "editor.wordWrap": "on",
+    "editor.wordWrapColumn": 80,
+    "editor.fontFamily": "monospace",
+    "editor.scrollBeyondLastLine": false,
+    // don't enable smoothScrolling which would break C-d and C-u
+    "editor.smoothScrolling": false,
+    "editor.find.globalFindClipboard": true,
+
+    // #-------- git
+    "git.decorations.enabled": true,
+
+    // welcomePage | newUntitledFile
+    "workbench.startupEditor": "newUntitledFile",
+    "workbench.statusBar.visible": true,
+    // #--------- workbench
+    "workbench.iconTheme": null,
+    "workbench.editor.showTabs": true,
+    // hide the siderbar
+    "workbench.activityBar.visible": false,
+    "workbench.colorCustomizations": {
+        "scrollbarSlider.background": "#00e",
+        "editorGroup.border": "#000",
+        "sideBar.border": "#000",
+        "tab.inactiveBackground": "#222",
+        "tab.activeBackground": "#222",
+        "tab.activeBorder": "#efefef",
+        "editor.inactiveSelectionBackground": "#303030",
+        "editorCursor.background": "#cdcdcd",
+        "editorCursor.foreground": "#cdcdcd",
+        "statusBar.background": "#005f5f",
+        "titleBar.activeBackground": "#ccc",
+        "titleBar.border": "#fff",
+        "statusBar.noFolderBackground": "#005f5f",
+        "statusBar.debuggingBackground": "#005f5f"
+    },
+
+    // #-------- file
+    "files.exclude": {
+    },
+    "files.associations": {
+        "*.vm": "html",
+        "*.tpl": "html",
+    },
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+
+    // #-------- explorer
+    "explorer.confirmDragAndDrop": false,
+
+
+    // #-------- search
+    "search.globalFindClipboard": true,
+    "search.smartCase": true,
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/dist": true,
+        "**/public_gen": true,
+    },
+
+    // #-------- zenMode
+    "zenMode.fullScreen": true,
+
+    // #-------- terminal:external & integrated
+    "terminal.external.osxExec": "Iterm.app",
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.cursorBlinking": true,
+
+    // #--------- plugin:vim
+    // "vim.insertModeKeyBindings"
+    // "vim.normalModeKeyBindings"
+    // "vim.visualModeKeyBindings"
+    // https://marketplace.visualstudio.com/items?itemName=vscodevim.vim
+    "vim.disableExtension": false,
+    "vim.statusBarColorControl": true,
+    "vim.easymotion": true,
+    "vim.useSystemClipboard": true,
+    "vim.leader": "<space>",
+    "vim.showmodename": true,
+    "vim.visualstar": true,
+    // Does dragging with the mouse put you into visual mode
+    "vim.mouseSelectionGoesIntoVisualMode": false,
+    "vim.easymotionMarkerBackgroundColor": "#f00",
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "k"],
+            "after": ["<Esc>"],
+        },
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "="
+            ],
+            "after": [],
+            "commands": [{
+                "command": "editor.action.reindentlines",
+                "args": []
+            }]
+        },
+        {
+            "before": ["<leader>", "T", "n"],
+            "commands": [
+                "settings.cycle.toggleLineNumber",
+            ],
+        },
+        {
+            "before": ["<leader>", "f", "n"], // "cmd+n" on mac
+            "commands": [
+                "extension.advancedNewFile",
+            ],
+        },
+        {
+            "before": ["<leader>", "m"],
+            "commands": [
+                "bookmarks.toggle"
+            ],
+        },
+        {
+            "before": ["<leader>", "b"],
+            "commands": [
+                "bookmarks.list"
+            ],
+        },
+        {
+            "before": ["<leader>", "<leader>"],
+            "commands": [
+                "workbench.action.showCommands",
+            ],
+        },
+        {
+            "before": ["Z", "Z"],
+            "commands": [
+                ":wq",
+            ],
+        },
+        {
+            "before": ["j"],
+            "after": ["g", "j"]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        // Bind p in visual mode to paste without overriding the current register
+        {
+            "before": [
+                "p",
+            ],
+            "after": [
+                "p",
+                "g",
+                "v",
+                "y",
+            ],
+        },
+    ],
+
+    // #-------- plugin:bookmarks
+    "bookmarks.treeview.visible": true,
+
+    // #------- language settings
+    "[dart]": {
+    },
+    "[javascript]": {
+    },
+
+    // #---------- lint:tslint
+
+    // remove experimental decorators warning
+    "javascript.implicitProjectConfig.experimentalDecorators": true,
+
+    // #-------- plugin:advancedNewFile
+    "advancedNewFile.exclude": {
+        "node_modules": true,
+        "node_modules_electron": true,
+        "dev": true,
+        "dist": true
+    },
+    "gitProjectManager.baseProjectsFolders": [
+        "/Users/xiqi/just-workspace",
+        "/Users/xiqi/projects",
+    ],
+    "advancedNewFile.showInformationMessages": true,
+    "advancedNewFile.convenienceOptions": [
+        "current",
+        "last",
+        "root"
+    ],
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+    "sync.gist": "7d7178a8d7fec9ee8ab6f713f92d53e9",
+    "sync.host": "",
+    "sync.pathPrefix": "",
+    "sync.quietSync": false,
+    "sync.askGistName": false,
+    "sync.removeExtensions": true,
+    "sync.syncExtensions": true,
+    "sync.autoDownload": false,
+    "sync.autoUpload": false,
+    "sync.lastUpload": "2018-07-13T07:28:19.475Z",
+    "sync.lastDownload": "",
+    "sync.forceDownload": false,
+    "window.zoomLevel": 1,
+    "breadcrumbs.enabled": false,
+    "editor.renderWhitespace": "none",
+}

@@ -1,0 +1,92 @@
+inoremap jk <esc>
+set incsearch
+" Case-insensitive searching.
+set ignorecase
+set smartcase
+
+" Default to global substitutions on lines
+set gdefault
+
+set blinkcursor
+
+" Paste mode - insert typed text literally
+set paste
+" Use the system pasteboard
+set pasteboard
+set clipboard=unnamed
+
+" No status bar
+set laststatus=0
+
+nnoremap ; :
+" Map <space>b to toggle a breakpoint at the current line
+nmap <space>b :xccmd toggleBreakpointAtCurrentLine<CR>
+
+" Use <space>cm to toggle comments for the selection
+nmap <space>cm :xccmd commentAndUncommentCurrentLines<CR>
+nmap Y y$
+
+" Poor man's surround.vim
+nmap <space>` gewi`<ESC>ea`<ESC>
+nmap <space>' gewi'<ESC>ea'<ESC>
+nmap <space>" gewi"<ESC>ea"<ESC>
+nmap <space>[ gewi[<ESC>ea]<ESC>
+nmap <space>( gewi(<ESC>ea)<ESC>
+nmap <space>{ gewi{<ESC>ea}<ESC>
+
+" Navigation
+"nmap <space>o :xcmenucmd Open Quickly...<CR>
+nmap <space>n :nissue<CR>
+nmap <space>p :pissue<CR>
+nmap <space>i :xcmenucmd Jump to Generated Interface<CR>
+
+" Windows
+"nmap <C-h> <C-w>h
+"nmap <C-j> <C-w>j
+"nmap <C-k> <C-w>k
+"nmap <C-l> <C-w>l
+
+" Show
+nmap <space>g :xcmenucmd History...<CR>
+nmap <space>F :xccmd showInFinder<CR>
+nmap <space>D :xccmd showDeveloperDocumentation<CR>
+nmap <space>d :xcmenucmd Quick Help for Selected Item<CR>
+
+" Toggle Toolbars
+nmap <space>h :xccmd toggleNavigatorsVisibility<CR>
+nmap <space>j :xccmd toggleDebuggerVisibility<CR>
+nmap <space>l :xccmd toggleUtilitiesVisibility<CR>
+nmap <space>k :xccmd toggleToolbarShown<CR>
+
+"""""""""""""""""""""""""""""""""""""""""
+" assistant editor and jump between Frame
+"""""""""""""""""""""""""""""""""""""""""
+" show standard editor to close assistant editor
+"map ,sa :xccmd changeToGeniusEditor<CR>
+" add new assistant editor
+"map ,aa :xccmd addAssistantEditor<CR>
+" del one assistant editor 
+"map ,da :xccmd removeAssistantEditor<CR>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Navigate
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" dc-debug console
+"map ,dc :xcmenucmd Activate Console<CR>
+
+" open current file in selected editor
+"nmap <space>o :xcmenucmd Open in…<CR>
+    
+
+nmap <C-b> :xcmenucmd Jump to Definition<CR>
+" Edit all in scope --> golden command
+nmap <C-t> :xccmd toggleTokenizedEditing<CR>
+" close current file
+nmap <space>w :xccmd closeDocument<CR>
+
+nmap 0 ^
+noremap H ^
+noremap L $
+
+nnoremap <C-x> :xcmenucmd<space>

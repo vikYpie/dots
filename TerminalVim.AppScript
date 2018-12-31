@@ -1,0 +1,34 @@
+If you want your terminal vim to open files you double click, follow the following steps (MacOS only):
+ 
+1. Open Automator
+2. Select Application
+3. Copy the attached file
+4. Save and set as default for opening files
+
+Multiple files are opened in vim tabs.
+If there is already a vim instance running, files are opened in it.
+
+Bugs / Problems:
+- does not open files when vim instance is in insert mode
+- vim instances running e.g. in tmux are not recognized
+ 
+Also thank Daniel Beck, who posted the script I adjusted
+http://superuser.com/questions/283418/how-can-i-make-terminal-vim-my-default-editor-application-in-mac-os-x
+
+----------------------------------------------
+on run {input, parameters}
+	tell application "iTerm"
+		activate
+		if (count of windows) = 0 then
+			set t to (create window with default profile)
+		else
+			set t to current window
+		end if
+		tell t
+			tell current session
+				write text ("vim \"" & POSIX path of first item of input as text) & "\""
+			end tell
+		end tell
+	end tell
+end run
+----------------------------------------------

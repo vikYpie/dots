@@ -1,0 +1,44 @@
+inoremap jk <esc>
+"noremap <C-g> <esc>
+"cnoremap <C-g> <esc>
+"xnoremap <C-g> <esc>
+"onoremap <C-g> <esc>
+
+nnoremap Q :q!<cr>
+nnoremap W :w!<cr>
+nnoremap Z ZZ
+nnoremap U :redo<cr>
+nnoremap <cr> o<esc>
+
+" <|>: reselect visual block after indent *****
+xnoremap < <gv
+xnoremap > >gv
+nmap <d-[> <<
+nmap <d-]> >>
+
+"automatically jump to end of text you pasted:
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]
+nnoremap <leader>p A<space><esc>p
+nnoremap <leader>P ^Pa<space><esc>
+
+" system clipboard support
+set clipboard+=unnamed
+"nnoremap yy "+yy
+"vnoremap y "+y
+"nnoremap p "+p
+"vnoremap p "+p
+"nnoremap P "+P
+"vnoremap P "+P
+"
+"
+set shiftround    "round > and < to mutipuls of shift width*****
+
+" Poor man's surround.vim
+nmap <space>` gewi`<ESC>ea`<ESC>
+nmap <space>' gewi'<ESC>ea'<ESC>
+nmap <space>" gewi"<ESC>ea"<ESC>
+nmap <space>[ gewi[<ESC>ea]<ESC>
+nmap <space>( gewi(<ESC>ea)<ESC>
+nmap <space>{ gewi{<ESC>ea}<ESC>

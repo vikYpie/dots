@@ -1,0 +1,52 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+    // {
+    //     "key": "ctrl+h",
+    //     "command": "workbench.action.navigateLeft",
+    // },
+    // {
+    //     "key": "ctrl+l",
+    //     "command": "workbench.action.navigateRight",
+    // },
+    // {
+    //     "key": "ctrl+k",
+    //     "command": "workbench.action.navigateUp",
+    // },
+    // {
+    //     "key": "ctrl+j",
+    //     "command": "workbench.action.navigateDown",
+    // },
+    {
+        "key": "ctrl+n",
+        "command": "settings.cycle",
+        "when": "editorTextFocus",
+        "args": {
+            "id": "toggleLineNumbers",
+            "values": [
+                // on | off | relative
+                {
+                    "editor.lineNumbers": "on"
+                },
+                {
+                    "editor.lineNumbers": "off"
+                },
+            ]
+        }
+    },
+    {
+        "key": "ctrl+g",
+        "command": "-workbench.action.gotoLine"
+    },
+    {
+        "key": "cmd+0",
+        "command": "-workbench.action.focusSideBar"
+    },
+    {
+        "key": "cmd+0",
+        "command": "workbench.action.zoomReset"
+    },
+    {
+        "key": "cmd+numpad0",
+        "command": "-workbench.action.zoomReset"
+    }
+]
